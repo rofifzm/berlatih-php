@@ -1,27 +1,49 @@
 <?php
 function skor_terbesar($arr){
-//kode di sini
-//buat array penyimpanan baru
-//tes array utk menyimpan per kelas
-//ambil dari variabel kelas
-//bila kelas sama bandingkan nilainya
-//ambil yang terbesar
-$hasil=[];
-$kelas=[];
-$nama=[];
-$hasil2=[];
 
-  foreach ($arr as $key => $value ){
-    
+$output=[];
+$nilai =0;
+$nilai2 =0;
+$nilai3 =0;
+foreach($arr as $key => $value) {
+    if ($value['nilai']>$nilai && $value['kelas']=='Laravel') {
+         $nilai=$value['nilai'];
+         $output[$value['kelas']] =
+   [
+       "nama" => $value['nama'],
+       "kelas" => $value['kelas'],
+       "nilai" => $value['nilai']
+   ];
+    } 
+    else if ($value['nilai']>$nilai2 && $value['kelas']=='React Native') {
+        $nilai2=$value['nilai'];
+        $output[$value['kelas']] =
+   [
+       "nama" => $value['nama'],
+       "kelas" => $value['kelas'],
+       "nilai" => $value['nilai']
+   ];
+      
+   } 
+   else if ($value['nilai']>$nilai3 && $value['kelas']=='React JS') {
+        $nilai3=$value['nilai']; 
+        $output[$value['kelas']] =
+   [
+       "nama" => $value['nama'],
+       "kelas" => $value['kelas'],
+       "nilai" => $value['nilai']
+   ];
+   } 
    
-   $kelas[]=$arr[$key]['kelas']; 
-   $kelas = array_unique($kelas); 
+   
    
 
-}   
+}
+
+return $output;
+
   
 
-return $kelas;
   
 
 
@@ -58,8 +80,9 @@ $skor = [
     "nilai" => 77
   ],
 ];
-
+echo "<pre>";
 print_r(skor_terbesar($skor));
+echo "</pre>";
 /* OUTPUT
   Array (
     [Laravel] => Array
