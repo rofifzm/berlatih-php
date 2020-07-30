@@ -7,13 +7,26 @@ function skor_terbesar($arr){
 //bila kelas sama bandingkan nilainya
 //ambil yang terbesar
 $hasil=[];
-$hasil_item=[];
-$p_array=count($arr);
-//echo $p_array;
-for ($i=0;$i<$p_array;$i++){
-    $hasil[]=$arr[$i]['kelas'];
-}
-return $hasil;
+$kelas=[];
+$nama=[];
+$hasil2=[];
+
+  foreach ($arr as $key => $value ){
+    
+   
+   $kelas[]=$arr[$key]['kelas']; 
+   $kelas = array_unique($kelas); 
+   
+
+}   
+  
+
+return $kelas;
+  
+
+
+  
+
 
 }
 
